@@ -17,6 +17,7 @@ import usePictureStore from '@/store/usePictureStore'
 import usePlayQueueStore from '@/store/usePlayQueueStore'
 import usePlayerStore from '@/store/usePlayerStore'
 import { useShallow } from 'zustand/shallow'
+import naturalCompare from 'natural-compare-lite'
 
 const Files = () => {
 
@@ -89,7 +90,7 @@ const Files = () => {
 
     if (sortBy === 'name') {
       if (orderBy === 'asc') {
-        return (a.fileName).localeCompare(b.fileName)
+        return naturalCompare(a.fileName, b.fileName)
       } else {
         return (b.fileName).localeCompare(a.fileName)
       }
